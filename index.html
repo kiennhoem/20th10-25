@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Lovely – nơi chia sẻ yêu thương.">
+  <title>Hép Pi Hu Mèn Đêy</title>
+  <link rel="icon" href="https://github.com/Panbap/anh/blob/main/icon1.png?raw=true" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Mali', cursive;
+      overflow: hidden;
+    }
+    #click-tip {
+      position: absolute;
+      bottom: 12px;
+      width: 100%;
+      text-align: center;
+      color: #ff99cc;
+      font-size: 18px;
+      animation: blink 1.2s infinite;
+      z-index: 100;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 0.2; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- importmap để three.js hoạt động -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+      "three/examples/jsm/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+    }
+  }
+  </script>
+
+  <!-- vùng canvas cho hiệu ứng trái tim -->
+  <div id="click-tip"></div>
+
+  <!-- Nhạc nền tự động -->
+  <audio id="bgm" autoplay loop>
+    <source src="./assets/music.mp3" type="audio/mpeg">
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
+  </audio>
+
+  <script>
+    // đảm bảo nhạc chạy ngay khi người dùng click
+    window.addEventListener("click", () => {
+      const bgm = document.getElementById("bgm");
+      if (bgm.paused) bgm.play();
+    });
+  </script>
+
+  <!-- ⚡ CHÚ Ý: phải đặt type="module" cho three.js code -->
+  <script type="module" src="./assets/index.main.js?v=202406"></script>
+</body>
+</html>
